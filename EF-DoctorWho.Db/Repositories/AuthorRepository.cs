@@ -4,13 +4,9 @@ using System.Linq;
 
 namespace EF_DoctorWho.Db.Repositories
 {
-    public class AuthorRepository
+    public class AuthorRepository : IAuthorRepository
     {
         private readonly DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
-        //public AuthorRepository(DoctorWhoCoreDbContext context)
-        //{
-        //    _context = context ?? throw new ArgumentNullException(nameof(context));
-        //}
 
         public void AddNewAuthor(string name)
         {
@@ -36,5 +32,36 @@ namespace EF_DoctorWho.Db.Repositories
             return _context.tblAuthor.ToList();
 
         }
+
+        public tblAuthor GetAuthor(int authorId)
+        {
+            if (!AuthorExist(authorId))
+            {
+                throw new ArgumentNullException(nameof(authorId));
+            }
+
+            return _context.tblAuthor.Find(authorId);
+        }
+
+
+        public bool AuthorExist(int authorId)
+        {
+            var Authors = _context.tblAuthor.ToList();
+            foreach (var author in Authors)
+            {
+                if(author.tblAutorID == authorId)
+                {
+                    return true;
+                    
+                }
+            }
+            return false;
+        }
+
+        public bool Save()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
+
     }
 }

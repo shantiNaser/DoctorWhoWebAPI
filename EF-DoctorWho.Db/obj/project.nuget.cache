@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FLChRlLBy5/hR5pKvo+ztHfEUoBcNuWe7eUj93tUq9AKX3trAbf8YCrSqt6WLRAlbCIJIm755WPGRV2eSsdUVw==",
+  "dgSpecHash": "NX42GEpzvY+4B8QalUrbZKAqlBWAsadDSP6k9Img76gjZ/t/zq/UZqBHDZcZOhM3jkGj5fLR+v+uR0c3gl23WA==",
   "success": true,
-  "projectFilePath": "/Users/macbookpro/Desktop/Foothill/EF-DoctorWho/EF-DoctorWhosln/code/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj",
+  "projectFilePath": "/Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj",
   "expectedPackageFiles": [
     "/Users/macbookpro/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/macbookpro/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
