@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/macbookpro/Desktop/Foothill/EF-DoctorWho/EF-DoctorWhosln/code/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj": {}
+    "/Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj": {}
   },
   "projects": {
-    "/Users/macbookpro/Desktop/Foothill/EF-DoctorWho/EF-DoctorWhosln/code/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj": {
+    "/Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/macbookpro/Desktop/Foothill/EF-DoctorWho/EF-DoctorWhosln/code/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj",
+        "projectUniqueName": "/Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj",
         "projectName": "EF-DoctorWho.Db",
-        "projectPath": "/Users/macbookpro/Desktop/Foothill/EF-DoctorWho/EF-DoctorWhosln/code/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj",
+        "projectPath": "/Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/EF-DoctorWho.Db.csproj",
         "packagesPath": "/Users/macbookpro/.nuget/packages/",
-        "outputPath": "/Users/macbookpro/Desktop/Foothill/EF-DoctorWho/EF-DoctorWhosln/code/EF-DoctorWho.Db/obj/",
+        "outputPath": "/Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/macbookpro/.config/NuGet/NuGet.Config"

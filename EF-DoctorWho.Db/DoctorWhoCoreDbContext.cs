@@ -6,6 +6,7 @@ namespace EF_DoctorWho.Db
 {
     public class DoctorWhoCoreDbContext : DbContext
     {
+
         public DbSet<tblEnemy> tblEnemy { get; set; }
         public DbSet<tblAuthor> tblAuthor { get; set; }
         public DbSet<tblCompanion> tblCompanion { get; set; }
