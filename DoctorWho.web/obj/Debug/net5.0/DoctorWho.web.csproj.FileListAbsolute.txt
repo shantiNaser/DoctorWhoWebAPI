@@ -9,6 +9,11 @@
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/DoctorWho.web.dll
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/ref/DoctorWho.web.dll
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/DoctorWho.web.pdb
+/Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/AutoMapper.dll
+/Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/FluentValidation.dll
+/Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/FluentValidation.AspNetCore.dll
+/Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/FluentValidation.DependencyInjectionExtensions.dll
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/Microsoft.Data.SqlClient.dll
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -46,6 +51,7 @@
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.AssemblyInfoInputs.cache
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.AssemblyInfo.cs
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.csproj.CoreCompileInputs.cache
+/Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.MvcApplicationPartsAssemblyInfo.cs
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.MvcApplicationPartsAssemblyInfo.cache
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/staticwebassets/DoctorWho.web.StaticWebAssets.Manifest.cache
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/staticwebassets/DoctorWho.web.StaticWebAssets.xml

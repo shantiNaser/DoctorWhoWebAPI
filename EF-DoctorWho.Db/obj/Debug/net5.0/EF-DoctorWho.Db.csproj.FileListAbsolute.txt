@@ -116,7 +116,6 @@
 /Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
 /Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/bin/Debug/net5.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
-/Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/obj/Debug/net5.0/EF-DoctorWho.Db.csproj.AssemblyReference.cache
 /Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/obj/Debug/net5.0/EF-DoctorWho.Db.GeneratedMSBuildEditorConfig.editorconfig
 /Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/obj/Debug/net5.0/EF-DoctorWho.Db.AssemblyInfoInputs.cache
 /Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/obj/Debug/net5.0/EF-DoctorWho.Db.AssemblyInfo.cs
