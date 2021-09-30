@@ -1,30 +1,68 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EF_DoctorWho.Db.Repositories
 {
-    public class EpsoideRepository
+    public class EpsoideRepository : IEpsoideRepository
     {
-        private static DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+        private readonly DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
 
-        public static void AddNewEpsoide(int SNumber, int ENumber, string EType, string Title, DateTime EDate, int AuotherID, int DrID, string Note)
+        public IEnumerable<tblEpisode> GetEpsoides()
         {
-            var Eps = new tblEpisode
-            {
-                SeriesNumber = SNumber,
-                EpisodeNumber = ENumber,
-                EpisodeType = EType,
-                Title = Title,
-                EpisodeDate = EDate,
-                tblAuthorID = AuotherID,
-                tblDoctorID = DrID,
-                Notes = Note
-            };
-            _context.tblEpisode.Add(Eps);
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
-
+            return _context.tblEpisode.ToList();
         }
-        public static void UpdateEpsoide(int EpsoideID, int SNumber, int ENumber, string EType, string Title, DateTime EDate, int AuotherID, int DrID, string Note)
+
+        public tblEpisode GetEpsoide(int EpsoideId)
+        {
+            var Eps = _context.tblEpisode.Find(EpsoideId);
+            if (!EpsoideExist(EpsoideId))
+            {
+                throw new ArgumentNullException(nameof(EpsoideId));
+            }
+            return Eps;
+        }
+
+        public bool EpsoideExist(int EpsoideId)
+        {
+
+            var Epsoides = _context.tblEpisode.ToList();
+            foreach (var Ep in Epsoides)
+            {
+                if (Ep.tblEpisodeID == EpsoideId)
+                {
+                    return true;
+
+                }
+            }
+            return false;
+        }
+
+        public bool Save()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
+
+
+        public void AddNewEpsoide(int AuthorID, int DoctorID, tblEpisode Epsoide)
+        {
+            if (Epsoide == null)
+            {
+                throw new ArgumentNullException(nameof(Epsoide));
+            }
+
+            Epsoide.tblAuthorID = AuthorID;
+            Epsoide.tblDoctorID = DoctorID;
+            _context.tblEpisode.Add(Epsoide);
+        }
+
+
+
+        // Not REady ...
+
+
+
+        public void UpdateEpsoide(int EpsoideID, int SNumber, int ENumber, string EType, string Title, DateTime EDate, int AuotherID, int DrID, string Note)
         {
             var Eps = _context.tblEpisode.Find(EpsoideID);
             Eps.SeriesNumber = SNumber;
@@ -38,7 +76,7 @@ namespace EF_DoctorWho.Db.Repositories
             _context.SaveChanges();
             System.Console.WriteLine("Process was Done Successfully");
         }
-        public static void DeleteEPisode(int id)
+        public void DeleteEPisode(int id)
         {
             var EPs = _context.tblEpisode.Find(id);
             _context.tblEpisode.Remove(EPs);

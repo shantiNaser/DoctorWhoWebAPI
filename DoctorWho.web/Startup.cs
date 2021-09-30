@@ -35,6 +35,7 @@ namespace DoctorWho.web
 
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddScoped<IEpsoideRepository, EpsoideRepository>();
 
         }
 
