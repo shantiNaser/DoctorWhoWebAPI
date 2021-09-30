@@ -8,7 +8,7 @@ namespace DoctorWho.web.ValidationAttrbuite
     {
         public AuthorValidator()
         {
-            RuleFor(Author => Author.AuthorName).NotNull();
+            RuleFor(Author => Author.AuthorName).NotNull().WithMessage("you should fill out the AuthorName");
         }
     }
 }

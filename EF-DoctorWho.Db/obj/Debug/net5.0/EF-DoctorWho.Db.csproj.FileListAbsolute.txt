@@ -125,3 +125,4 @@
 /Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/obj/Debug/net5.0/ref/EF-DoctorWho.Db.dll
 /Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/obj/Debug/net5.0/EF-DoctorWho.Db.pdb
 /Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/obj/Debug/net5.0/EF-DoctorWho.Db.genruntimeconfig.cache
+/Users/macbookpro/Projects/DoctorWho/EF-DoctorWho.Db/obj/Debug/net5.0/EF-DoctorWho.Db.csproj.AssemblyReference.cache

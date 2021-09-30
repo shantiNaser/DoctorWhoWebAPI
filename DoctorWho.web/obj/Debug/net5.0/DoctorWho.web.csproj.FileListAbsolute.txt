@@ -46,7 +46,6 @@
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/EF-DoctorWho.Db.dll
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/bin/Debug/net5.0/EF-DoctorWho.Db.pdb
-/Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.csproj.AssemblyReference.cache
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.GeneratedMSBuildEditorConfig.editorconfig
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.AssemblyInfoInputs.cache
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.AssemblyInfo.cs
@@ -62,3 +61,4 @@
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/ref/DoctorWho.web.dll
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.pdb
 /Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.genruntimeconfig.cache
+/Users/macbookpro/Projects/DoctorWho/DoctorWho.web/obj/Debug/net5.0/DoctorWho.web.csproj.AssemblyReference.cache
