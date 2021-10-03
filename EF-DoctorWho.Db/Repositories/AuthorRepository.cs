@@ -6,19 +6,24 @@ namespace EF_DoctorWho.Db.Repositories
 {
     public class AuthorRepository : IAuthorRepository
     {
-        private readonly DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
-
-        public void AddNewAuthor(string name)
+        private readonly DoctorWhoCoreDbContext _context;
+        public AuthorRepository(DoctorWhoCoreDbContext context)
         {
-            var Author = new tblAuthor { AuthorName = name };
+
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+
+        public void AddNewAuthor(tblAuthor author)
+        {
+            if(author == null)
+            {
+                throw new ArgumentNullException(nameof(author));
+            }
+
+            var Author = new tblAuthor { AuthorName = author.AuthorName };
             _context.tblAuthor.Add(Author);
         }
-        public void UpdateExistingAuthor(int AuthorID, string newName)
-        {
-            var Author = _context.tblAuthor.Find(AuthorID);
-            Author.AuthorName = newName;
-            _context.SaveChanges();
-        }
+
 
         public void DeleteAuthor(int AuthorID)
         {

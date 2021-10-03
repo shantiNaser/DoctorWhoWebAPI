@@ -1,22 +1,29 @@
+using System;
+
 namespace EF_DoctorWho.Db.Repositories
 {
-    public class EpisodeEnemyRepository
+    public class EpisodeEnemyRepository : IEpisodeEnemyRepository
     {
-        private static DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
-        public static void AddEnemyToEpisode(int EpsoideID, string name, string Des)
+        private readonly DoctorWhoCoreDbContext _context;
+        public EpisodeEnemyRepository(DoctorWhoCoreDbContext context)
         {
-            // Prepare a new Enemy ...
-            var Enmy = new tblEnemy { EnemyName = name, Description = Des };
-            _context.tblEnemy.Add(Enmy);
+
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+        public void AddEnemyToEpisode(int EpsoideID, int enemID)
+        {
+
+            var EpsoideEnemy = new tblEpisodeEnemy
+            {
+                tblEpisodeID = EpsoideID,
+                tblEnemyID = enemID
+            };
+
+            _context.tblEpisodeEnemy.Add(EpsoideEnemy);
             _context.SaveChanges();
-            // Search for the Epsoide that we need to add Enemy to 
-            var EPS = _context.tblEpisode.Find(EpsoideID);
-            // Add
-            EPS.EpisodeEnemy.Add
-            (new tblEpisodeEnemy { tblEpisodeID = EpsoideID, tblEnemyID = Enmy.tblEnemyId });
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
 
         }
+
+       
     }
 }

@@ -6,6 +6,10 @@ namespace EF_DoctorWho.Db
 {
     public class DoctorWhoCoreDbContext : DbContext
     {
+        public DoctorWhoCoreDbContext(DbContextOptions<DoctorWhoCoreDbContext> options)
+            : base(options)
+        {
+        }
 
         public DbSet<tblEnemy> tblEnemy { get; set; }
         public DbSet<tblAuthor> tblAuthor { get; set; }
@@ -18,10 +22,11 @@ namespace EF_DoctorWho.Db
 
 
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer
-                ("Server=localhost,1433; Database=DoctorWhoCore;User=sa; Password=NaserSQL123");
+            //optionsBuilder.UseSqlServer
+            //    ("Server=localhost,1433; Database=DoctorWhoCore;User=sa; Password=NaserSQL123");
         }
 
 

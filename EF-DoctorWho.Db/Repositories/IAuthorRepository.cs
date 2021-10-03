@@ -5,8 +5,7 @@ namespace EF_DoctorWho.Db.Repositories
 {
     public interface IAuthorRepository
     {
-        public void AddNewAuthor(string name);
-        public void UpdateExistingAuthor(int AuthorID, string newName);
+        public void AddNewAuthor(tblAuthor author);
         public void DeleteAuthor(int AuthorID);
         public IEnumerable<tblAuthor> GetAuthors();
         public tblAuthor GetAuthor(int authorId);

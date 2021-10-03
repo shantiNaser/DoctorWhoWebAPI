@@ -6,6 +6,7 @@ using EF_DoctorWho.Db;
 using EF_DoctorWho.Db.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,8 +31,26 @@ namespace DoctorWho.web
 
             services.AddControllers();
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddDbContext<DoctorWhoCoreDbContext>
+                (options => options.UseSqlServer
+                (Configuration["ConnectionStrings:DB"]));
+
+
             services.AddScoped<IAuthorRepository, AuthorRepository>();
-           
+            services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddScoped<IEpsoideRepository, EpsoideRepository>();
+            services.AddScoped<IEnemyRepository, EnemyRepository>();
+            services.AddScoped<IEpisodeEnemyRepository, EpisodeEnemyRepository>();
+            services.AddScoped<ICompanionRepository, CompanionRepository>();
+            services.AddScoped<IEpisodeCompanionRepository, EpisodeCompanionRepository>();
+
+            
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +59,17 @@ namespace DoctorWho.web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler(appBuilder =>
+                {
+                    appBuilder.Run(async context =>
+                    {
+                        context.Response.StatusCode = 500;
+                        await context.Response.WriteAsync("An unexpected fault happen ... Try again later");
+                    });
+                });
             }
 
             app.UseRouting();
