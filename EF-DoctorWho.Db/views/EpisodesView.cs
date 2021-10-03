@@ -5,7 +5,12 @@ namespace EF_DoctorWho.Db
 {
     public class EpisodesView
     {
-        private static DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+        private static DoctorWhoCoreDbContext _context;
+        public EpisodesView(DoctorWhoCoreDbContext context)
+        {
+         
+                _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
         public string AuthorName { get; set; }
         public string DoctorName { get; set; }
         public string viewEpisodes { get; set; }

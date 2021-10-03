@@ -5,7 +5,12 @@ namespace EF_DoctorWho.Db.Repositories
 {
     public class EnemyRepository : IEnemyRepository
     {
-        private readonly DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+        private readonly DoctorWhoCoreDbContext _context;
+        public EnemyRepository(DoctorWhoCoreDbContext context)
+        {
+
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
 
         public tblEnemy GetEnemy(int ID)
         {

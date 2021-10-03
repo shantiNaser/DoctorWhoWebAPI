@@ -1,8 +1,15 @@
+using System;
+
 namespace EF_DoctorWho.Db.Repositories
 {
     public class EpisodeCompanionRepository : IEpisodeCompanionRepository
     {
-        private readonly DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+        private readonly DoctorWhoCoreDbContext _context;
+        public EpisodeCompanionRepository(DoctorWhoCoreDbContext context)
+        {
+
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
         public void AddCompianToEpisode(int EpsoideID, int ComID)
         {
 

@@ -7,7 +7,13 @@ namespace EF_DoctorWho.Db
 {
     class Program
     {
-        private static DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+        private static DoctorWhoCoreDbContext _context;
+        public Program(DoctorWhoCoreDbContext context)
+        {
+
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+        
         static void Main(string[] args)
         {
             // PrepraeTable();

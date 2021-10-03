@@ -5,7 +5,12 @@ namespace EF_DoctorWho.Db.Repositories
 {
     public class CompanionRepository : ICompanionRepository
     {
-        private DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+        private DoctorWhoCoreDbContext _context;
+        public CompanionRepository(DoctorWhoCoreDbContext context)
+        {
+
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
         public tblCompanion GetCompinain(int ID)
         {
             var Com = _context.tblCompanion.Find(ID);

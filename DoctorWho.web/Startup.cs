@@ -33,6 +33,11 @@ namespace DoctorWho.web
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            services.AddDbContext<DoctorWhoCoreDbContext>
+                (options => options.UseSqlServer
+                (Configuration["ConnectionStrings:DB"]));
+
+
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<IEpsoideRepository, EpsoideRepository>();

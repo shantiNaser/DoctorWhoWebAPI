@@ -6,7 +6,12 @@ namespace EF_DoctorWho.Db.Repositories
 {
     public class EpsoideRepository : IEpsoideRepository
     {
-        private readonly DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+        private readonly DoctorWhoCoreDbContext _context;
+        public EpsoideRepository(DoctorWhoCoreDbContext context)
+        {
+
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
 
         public IEnumerable<tblEpisode> GetEpsoides()
         {

@@ -6,7 +6,12 @@ namespace EF_DoctorWho.Db.Repositories
 {
     public class AuthorRepository : IAuthorRepository
     {
-        private readonly DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+        private readonly DoctorWhoCoreDbContext _context;
+        public AuthorRepository(DoctorWhoCoreDbContext context)
+        {
+
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
 
         public void AddNewAuthor(tblAuthor author)
         {
