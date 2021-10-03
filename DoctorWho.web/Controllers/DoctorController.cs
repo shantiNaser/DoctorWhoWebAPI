@@ -49,19 +49,6 @@ namespace DoctorWho.web.Controllers
             try
             {
                 var Dr = _doctorRepository.GetDoctor(doctorId);
-                if (Dr == null)
-                {
-                    // To Review ... it create the Dr with Incremantel id not Id we provided ...
-                    // if the Dr D.N.E .. I will create it
-                    var DrToAdd = _mapper.Map<tblDoctor>(doctor);
-                    DrToAdd.tblDoctorID = doctorId;
-                    _doctorRepository.AddNewDoctor(doctorId, DrToAdd);
-                    _doctorRepository.Save();
-                    var DrNotExistToReturn = _mapper.Map<DoctorForPrintingDto>(DrToAdd);
-                    return CreatedAtRoute("GetDoctor", new { DoctorId = DrNotExistToReturn.DoctorID }, DrNotExistToReturn);
-                }
-
-
                 // Check Validater for the Updating an existing Doctor
                 DoctorForUpdatingValidator validater = new DoctorForUpdatingValidator();
                 var result = validater.Validate(doctor);
@@ -81,7 +68,14 @@ namespace DoctorWho.web.Controllers
             }
             catch (ArgumentNullException)
             {
-                return NotFound();
+                // To Review ... it create the Dr with Incremantel id not Id we provided ...
+                // if the Dr D.N.E .. I will create it
+                var DrToAdd = _mapper.Map<tblDoctor>(doctor);
+                DrToAdd.tblDoctorID = doctorId;
+                _doctorRepository.AddNewDoctor(doctorId, DrToAdd);
+                _doctorRepository.Save();
+                var DrNotExistToReturn = _mapper.Map<DoctorForPrintingDto>(DrToAdd);
+                return CreatedAtRoute("GetDoctor", new { DoctorId = DrNotExistToReturn.DoctorID }, DrNotExistToReturn);
             }
 
         }

@@ -1,37 +1,34 @@
+using System;
 using System.Linq;
 
 namespace EF_DoctorWho.Db.Repositories
 {
-    public class CompanionRepository
+    public class CompanionRepository : ICompanionRepository
     {
-        private static DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
-        public static void AddNewCompanion(string Name, string WhoPlay)
+        private DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+        public tblCompanion GetCompinain(int ID)
         {
-            var Com = new tblCompanion { companionName = Name, WhoPlayed = WhoPlay };
-            _context.tblCompanion.Add(Com);
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
-        }
-        public static void UpdateExistingCompanion(int id, string Name, string WhoPlay)
-        {
-            var Com = _context.tblCompanion.Find(id);
-            Com.companionName = Name;
-            Com.WhoPlayed = WhoPlay;
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
-        }
-        public static void DeleteExistingCompanion(int id)
-        {
-            var Com = _context.tblCompanion.Find(id);
-            _context.tblCompanion.Remove(Com);
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
+            var Com = _context.tblCompanion.Find(ID);
+            if (!CompinainExist(ID))
+            {
+                throw new ArgumentNullException(nameof(ID));
+            }
+            return Com;
         }
 
-        public static void SearchCompanionByID(int ID)
+        public bool CompinainExist(int Id)
         {
-            var Com = _context.tblCompanion.Where(C => C.tblCompanionID == ID).ToList();
-            System.Console.WriteLine(Com.First().companionName);
+
+            var Coms = _context.tblCompanion.ToList();
+            foreach (var C in Coms)
+            {
+                if (C.tblCompanionID == Id)
+                {
+                    return true;
+
+                }
+            }
+            return false;
         }
     }
 }

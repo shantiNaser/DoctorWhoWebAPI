@@ -16,13 +16,25 @@ namespace DoctorWho.web.Controllers
         public readonly IEpsoideRepository _EpsoideRepository;
         public readonly IAuthorRepository _AuthorRepository;
         public readonly IDoctorRepository _DoctorRepository;
+        public readonly IEnemyRepository _EnemyRepository;
+        public readonly IEpisodeEnemyRepository _EpisodeEnemyRepository;
+        public readonly ICompanionRepository _CompanionRepository;
+        public readonly IEpisodeCompanionRepository _EpisodeCompanionRepository;
         public readonly IMapper _mapper;
 
-        public EpsoideController(IEpsoideRepository epsoideRepository, IAuthorRepository authorRepository, IDoctorRepository doctorRepository, IMapper mapper)
+        public EpsoideController(IEpsoideRepository epsoideRepository, IAuthorRepository authorRepository
+            , IDoctorRepository doctorRepository, IEnemyRepository enemyRepository
+            , IEpisodeEnemyRepository episodeEnemyRepository
+            , ICompanionRepository companionRepository
+            , IEpisodeCompanionRepository episodeCompanionRepository ,IMapper mapper)
         {
             _EpsoideRepository = epsoideRepository ?? throw new ArgumentNullException(nameof(epsoideRepository));
             _AuthorRepository = authorRepository ?? throw new ArgumentNullException(nameof(authorRepository));
             _DoctorRepository = doctorRepository ?? throw new ArgumentNullException(nameof(doctorRepository));
+            _EnemyRepository = enemyRepository ?? throw new ArgumentNullException(nameof(enemyRepository));
+            _EpisodeEnemyRepository = episodeEnemyRepository ?? throw new ArgumentNullException(nameof(episodeEnemyRepository));
+            _CompanionRepository = companionRepository ?? throw new ArgumentNullException(nameof(companionRepository));
+            _EpisodeCompanionRepository = episodeCompanionRepository ?? throw new ArgumentNullException(nameof(episodeCompanionRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
@@ -48,7 +60,7 @@ namespace DoctorWho.web.Controllers
             }
         }
 
-        [HttpPost("{authorId}/{doctorId}")]
+        [HttpPost("CreateEpsoide/{authorId}/{doctorId}")]
         public IActionResult CreateEpsoide(int authorId, int doctorId, EpisodeForCreationDto Epsoide)
         {
             try
@@ -76,6 +88,41 @@ namespace DoctorWho.web.Controllers
             {
                 return NotFound();
             }
+        }
+
+
+        [HttpPost("AddEnemyToEpisode/{episodeId}/{enemieId}")]
+        public IActionResult AddEnemyToEpisode(int episodeId, int enemieId)
+        {
+            try
+            {
+                var Epsoide = _EpsoideRepository.GetEpsoide(episodeId);
+                var Enemy = _EnemyRepository.GetEnemy(enemieId);
+                _EpisodeEnemyRepository.AddEnemyToEpisode(episodeId, enemieId);
+                return Ok();
+            }
+            catch(ArgumentNullException)
+            {
+                return NotFound();
+            }
+
+        }
+
+        [HttpPost("AddCompinainToEpisode/{episodeId}/{CompinainId}")]
+        public IActionResult AddCompinainToEpisode(int episodeId, int CompinainId)
+        {
+            try
+            {
+                var Epsoide = _EpsoideRepository.GetEpsoide(episodeId);
+                var Com = _CompanionRepository.GetCompinain(CompinainId);
+                _EpisodeCompanionRepository.AddCompianToEpisode(episodeId, CompinainId);
+                return Ok();
+            }
+            catch (ArgumentNullException)
+            {
+                return NotFound();
+            }
+
         }
 
 

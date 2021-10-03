@@ -55,33 +55,5 @@ namespace EF_DoctorWho.Db.Repositories
             Epsoide.tblDoctorID = DoctorID;
             _context.tblEpisode.Add(Epsoide);
         }
-
-
-
-        // Not REady ...
-
-
-
-        public void UpdateEpsoide(int EpsoideID, int SNumber, int ENumber, string EType, string Title, DateTime EDate, int AuotherID, int DrID, string Note)
-        {
-            var Eps = _context.tblEpisode.Find(EpsoideID);
-            Eps.SeriesNumber = SNumber;
-            Eps.EpisodeNumber = ENumber;
-            Eps.EpisodeType = EType;
-            Eps.Title = Title;
-            Eps.EpisodeDate = EDate;
-            Eps.tblAuthorID = AuotherID;
-            Eps.tblDoctorID = DrID;
-            Eps.Notes = Note;
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
-        }
-        public void DeleteEPisode(int id)
-        {
-            var EPs = _context.tblEpisode.Find(id);
-            _context.tblEpisode.Remove(EPs);
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
-        }
     }
 }

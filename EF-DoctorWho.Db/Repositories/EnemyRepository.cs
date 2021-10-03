@@ -1,36 +1,35 @@
+using System;
 using System.Linq;
 
 namespace EF_DoctorWho.Db.Repositories
 {
-    public class EnemyRepository
+    public class EnemyRepository : IEnemyRepository
     {
-        private static DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
-        public static void AddNewEnemys(string Name, string Desc)
+        private readonly DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+
+        public tblEnemy GetEnemy(int ID)
         {
-            var Enm = new tblEnemy { EnemyName = Name, Description = Desc };
-            _context.tblEnemy.Add(Enm);
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
+            var Enmy = _context.tblEnemy.Find(ID);
+            if (!EnemyExist(ID))
+            {
+                throw new ArgumentNullException(nameof(ID));
+            }
+            return Enmy;
         }
-        public static void updateExistingEnemys(int Id, string Name, string Desc)
+
+        public bool EnemyExist(int Id)
         {
-            var Enm = _context.tblEnemy.Find(Id);
-            Enm.EnemyName = Name;
-            Enm.Description = Desc;
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
-        }
-        public static void DeleteExistingEnemys(int ID)
-        {
-            var Enm = _context.tblEnemy.Find(ID);
-            _context.tblEnemy.Remove(Enm);
-            _context.SaveChanges();
-            System.Console.WriteLine("Process was Done Successfully");
-        }
-        public static void SearchEnemyByID(int ID)
-        {
-            var Enmy = _context.tblEnemy.Where(s => s.tblEnemyId == ID).ToList();
-            System.Console.WriteLine(Enmy.First().EnemyName);
+
+            var Enemy = _context.tblEnemy.ToList();
+            foreach (var En in Enemy)
+            {
+                if (En.tblEnemyId == Id)
+                {
+                    return true;
+
+                }
+            }
+            return false;
         }
     }
 }
